@@ -1,0 +1,64 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+/* Page Heading */
+h2 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Comment List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Individual Comment Styling */
+li {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Sentiment Color Styling */
+.positive {
+    color: green;
+    font-weight: bold;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+}
+
+.neutral {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Error & No Data Message Styling */
+.error, .no-data {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    ul {
+        width: 90%;
+    }
+}

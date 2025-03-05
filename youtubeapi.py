@@ -3,11 +3,11 @@ import requests
 from textblob import TextBlob
 
 # YouTube API Key and Video ID
-API_KEY = "AIzaSyB4Ya0RZaRdq4cbQ9GUX4Cu8YRBWNWxdxQ"
-VIDEO_ID = "CnEOLuCojY0"
+API_KEY = "YOUR_YOUTUBE_API_KEY"
+VIDEO_ID = "VIDEO_ID"
 
 # YouTube API URL
-URL = f"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId={VIDEO_ID}&key={API_KEY}&maxResults=100"
+URL = f"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId={VIDEO_ID}&key={API_KEY}&maxResults=300"
 
 # Fetch comments from YouTube
 response = requests.get(URL)
@@ -17,11 +17,14 @@ comments_data = response.json()
 conn = psycopg2.connect(
     dbname="youtube_analysis",
     user="postgres",
-    password="1234",
+    password="YOUR_DB_PASSWORD",
     host="localhost",
     port="5432"
 )
 cursor = conn.cursor()
+# **DELETE existing comments for this VIDEO_ID before inserting new ones**
+cursor.execute("DELETE FROM youtube_comments")
+conn.commit()
 
 # Function to insert comments into the database
 def insert_comment(video_id, comment):
